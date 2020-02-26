@@ -21,3 +21,8 @@
 .active {
   background-color: #4CAF50; /* Add an active/current color */
 }
+.signup{
+text-align: right;
+padding: 20px;
+
+}
