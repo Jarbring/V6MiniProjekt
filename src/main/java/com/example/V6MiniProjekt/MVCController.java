@@ -1,4 +1,4 @@
 package com.example.V6MiniProjekt;
 
-public class MVC {
+public class MVCController {
 }
