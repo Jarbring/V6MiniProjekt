@@ -3,6 +3,8 @@ package com.example.V6MiniProjekt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+
 @Service
 public class ListServices {
     @Autowired
@@ -12,8 +14,11 @@ public class ListServices {
         boolean valid = false;
 
         //Ej färdig metod under. Den skall hämta info från ListRepository och jämföra med userName/password
-        if (userName.equals(listRepository.checkUsername(userName)) && password.equals(listRepository.checkPassword(password)))
-            valid = true;
+        for (Account account : listRepository.getAccountList()) {
+            if (userName.equals(account.getUsername()) && password.equals(account.getPassword())) {
+                valid = true;
+            }
+        }
         return valid;
     }
 }

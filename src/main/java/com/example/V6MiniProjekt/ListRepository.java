@@ -7,6 +7,23 @@ import java.util.ArrayList;
 
 @Repository
 public class ListRepository {
+
+    List<Account> accountList = new ArrayList<>();
+
+    public void addAccount(String userName, String password) {
+        accountList.add(new Account(userName,password));
+    }
+
+    public List<Account> getAccountList() {
+        accountList.add(new Account("Mikael","Mikael"));
+        accountList.add(new Account("Oskar","Oskar"));
+        accountList.add(new Account("Jonathan","Jonathan"));
+        accountList.add(new Account("Angelica","Angelica"));
+        accountList.add(new Account("Karin","Karin"));
+
+        return accountList;
+    }
+
     public List getMusicList() {
         List<Music> musicList = new ArrayList<>();
         musicList.add(new Music("MusicList", 1, "music", "Artist1", "song1", "Album1", "Pop", 1994));
