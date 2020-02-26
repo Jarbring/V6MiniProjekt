@@ -35,4 +35,9 @@ class V6MiniProjektApplicationTests {
 
 	}
 
+	@Test
+	public void validateArraySize() {
+		//Kolla så att ArrayList inte ersätter med nya accounts
+	}
+
 }

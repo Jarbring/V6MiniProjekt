@@ -13,7 +13,7 @@ public class ListServices {
     public boolean validateLogin(String userName, String password) {
         boolean valid = false;
 
-        //Ej färdig metod under. Den skall hämta info från ListRepository och jämföra med userName/password
+        //Skall hämta info från ListRepository och jämföra med userName/password
         for (Account account : listRepository.getAccountList()) {
             if (userName.equals(account.getUsername()) && password.equals(account.getPassword())) {
                 valid = true;
