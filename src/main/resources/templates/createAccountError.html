@@ -11,13 +11,13 @@
     <title>Home</title>
 </head>
 <body>
-<h1>TEMP CREATE ACCOUNT ERROR</h1>
+<h1></h1>
 
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-light static-top">
     <div class="container">
         <a class="navbar-brand" href="home.html">
-            <img class="logo" src="listit-transp.png" alt="logo">
+            <img class="logo" src="listit-transp2.png" alt="logo">
         </a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,14 +31,17 @@
                     </a>
                 </li>
             </ul>
-            <form class="form-inline" action="/action_page.php">
+            <form class="form-inline" action="/home" method="POST">
                 <div class="form-group">
                     <label for="Uname">Sign in:</label>
-                    <input type="text" class="form-control" id="Uname">
+                    <input type="text" class="form-control" name="userName" id="Uname">
                 </div>
                 <div class="form-group">
                     <label for="pwd">Password:</label>
-                    <input type="password" class="form-control" id="pwd">
+                    <input type="password" class="form-control" name="password" id="pwd">
+                </div>
+                <div>
+                    <input type="submit" value="Login">
                 </div>
             </form>
 
@@ -54,15 +57,15 @@
 
         <div class = col-4>
 
+
             <div class ="signup">
                 <h3>Sign up for free!</h3>
-                <form action="/home.html"><br>
+                <br><h4><i>Username is already taken :( </i></h4>
+                <form action="/home1" method="POST"><br>
                     <label for="username">Username:</label>
-                    <input type="text" id="username" name="username"><br><br>
+                    <input type="text" id="username" name="createUserName"><br><br>
                     <label for="password">Password:</label>
-                    <input type="password" id="password" name="password"><br><br>
-                    <label for="email">Email:</label>
-                    <input type ="text" id="email" name="email"><br><br>
+                    <input type="password" id="password" name="createPassword"><br><br>
                     <input type="submit" value="Submit" class="btn btn-success">
                 </form>
             </div>
