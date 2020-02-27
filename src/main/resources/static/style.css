@@ -4,7 +4,7 @@ padding: 20px;
 }
 
 .button {
- background-color: #93DBc8;
+ background-color: #E7A951;
   color: black;
   padding: 5px 15px;
   text-align: center;
@@ -34,3 +34,23 @@ padding: 20px;
 .checked {
   color: orange;
 }
+.form-inline {
+text-align: right;
+}
+
+.card-body {
+border: 1.5px solid #DE337D;
+border-radius: 6px;
+
+
+}
+
+h4 {
+color: red;
+}
+.form-group {
+color: white;
+padding: 10px;
+}
+
+
