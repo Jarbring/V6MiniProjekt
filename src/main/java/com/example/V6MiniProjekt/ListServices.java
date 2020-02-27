@@ -23,13 +23,13 @@ public class ListServices {
     }
 
     public boolean createAccount(String createUserName, String createPassword) {
-        boolean valid = false;
+        boolean valid = true;
 
         //Checks if username is taken and in not it adds the account to the database
         for (Account account : listRepository.getAccountList()) {
-            if (!createUserName.equals(account.getUsername())) {
-                listRepository.addAccount(createUserName, createPassword);
-                valid = true;
+            if (createUserName.equals(account.getUsername())) {
+                valid = false;
+                break;
             }
         }
         return valid;
