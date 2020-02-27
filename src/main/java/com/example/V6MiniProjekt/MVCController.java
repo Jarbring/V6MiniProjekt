@@ -20,6 +20,11 @@ public class MVCController {
         return "/home";
     }
 
+    @GetMapping("/home1")
+    public String createAccount(){
+        return "/signedInHome";
+    }
+
     //Checks if the user is logged on before displaying the signedInHome-page
     @GetMapping("/signedInHome")
     public String loginController(HttpSession session){
