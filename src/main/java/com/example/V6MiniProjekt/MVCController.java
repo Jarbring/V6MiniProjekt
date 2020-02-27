@@ -2,6 +2,7 @@ package com.example.V6MiniProjekt;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -71,7 +72,7 @@ public class MVCController {
 
     }
 
-    @PostMapping("/home")
+    @PostMapping("/home1")
     public String createAccount(HttpSession session, @RequestParam String createUserName, String createPassword) {
 
         //Call a method to check if the username is taken and if not redirect to add the account in the database.
@@ -98,4 +99,13 @@ public class MVCController {
         else
             return "/createAccountError";
     }
+
+/*    @GetMapping("/myLists")
+    public String myLists(){
+        return "myLists";
+    }
+    @PostMapping("/myLists")
+    public String myList(Model model, HttpSession session){
+        return "myLists";
+    }*/
 }

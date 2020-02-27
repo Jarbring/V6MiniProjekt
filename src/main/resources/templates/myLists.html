@@ -1,92 +1,59 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport"content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet"href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"crossorigin="anonymous">
-
-    <link rel="stylesheet" th:href="${'/style.css'}" href="../static/style.css" >
-
-    <title>Home</title>
+    <link rel="stylesheet" href="/style.css">
+    <title>My Lists</title>
 </head>
 <body>
-<h1></h1>
 
+<p>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-light static-top">
-    <div class="container">
-        <a class="navbar-brand" href="home.html">
-            <img class="logo" src="listit-transp.png" alt="logo">
-        </a>
+    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#Music" aria-expanded="false" aria-controls="Music">
+       My Top 5 Songs
+    </button>
 
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Search
-                        <span class="sr-only">(current)</span>
-                    </a>
-                </li>
+    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#Movie" aria-expanded="false" aria-controls="Movie">
+        My Top 5 Tacos
+    </button>
+</p>
+<div class="collapse" id="Music">
+    <div class="card card-body">
+        <div class="card" style="width: 18rem;">
+            <form action = "/myLists" method ="POST">
+            <ul class="list-group list-group-flush"  >
+                <li class="list-group-item"><input type="text"></li>
+                <li class="list-group-item"><input type="text"></li>
+                <li class="list-group-item"><input type="text"></li>
+                <li class="list-group-item"><input type="text"></li>
+                <li class="list-group-item"><input type="text"></li>
+                <input type ="submit" value="Submit" class="btn btn-success">
             </ul>
-            <form class="form-inline" action="/action_page.php">
-                <div class="form-group">
-                    <label for="Uname">Sign in:</label>
-                    <input type="text" class="form-control" id="Uname">
-                </div>
-                <div class="form-group">
-                    <label for="pwd">Password:</label>
-                    <input type="password" class="form-control" id="pwd">
-                </div>
             </form>
-
-
-        </div>
-    </div>
-</nav>
-
-
-<div class ="jumbotron">
-    <div class ="row">
-        <div class = col-8></div>
-
-        <div class = col-4>
-
-            <div class ="signup">
-                <h3>Sign up for free!</h3>
-                <form action="/home.html"><br>
-                    <label for="username">Username:</label>
-                    <input type="text" id="username" name="username"><br><br>
-                    <label for="password">Password:</label>
-                    <input type="password" id="password" name="password"><br><br>
-                    <label for="email">Email:</label>
-                    <input type ="text" id="email" name="email"><br><br>
-                    <input type="submit" value="Submit" class="btn btn-success">
-                </form>
-            </div>
         </div>
     </div>
 </div>
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-4">
-            <h2>Hej</h2>
-        </div>
-        <div class="col-md-4">
-            <h2>Hej</h2>
-        </div>
-        <div class="col-md-4">
-            <h2>Hej</h2>
+<div class="collapse" id="Movie">
+    <div class="card card-body">
+        <div class="card" style="width: 18rem;">
+
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><input type="text"></li>
+                <li class="list-group-item"><input type="text"></li>
+                <li class="list-group-item"><input type="text"></li>
+                <li class="list-group-item"><input type="text"></li>
+                <li class="list-group-item"><input type="text"></li>
+               <input type ="submit" value="Submit" class="btn btn-success">
+            </ul>
         </div>
     </div>
 </div>
 
-<footer class="container">
-    <p>© FlamingoKvintetten 2020</p>
-</footer>
+
 
 
 
