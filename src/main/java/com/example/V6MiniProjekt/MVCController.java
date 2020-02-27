@@ -15,7 +15,24 @@ public class MVCController {
     ListServices listServices;
 
     @GetMapping("/home")
-    public String loginController(){
+    public String homeController(){
+        return "/home";
+    }
+
+    //Checks if the user is logged on before displaying the signedInHome-page
+    @GetMapping("/signedInHome")
+    public String loginController(HttpSession session){
+        String userName = (String)session.getAttribute("userName");
+        if (userName != null)
+        return "/signedInHome";
+        else
+            return "/home";
+    }
+
+    //Not connected to a logout button yet.
+    @GetMapping("/logout") 
+    public String logout(HttpSession session){
+        session.removeAttribute("userName");
         return "/home";
     }
 
@@ -25,8 +42,10 @@ public class MVCController {
         //Call a method from listService to validate login attempt
         boolean valid = listServices.validateLogin(userName, password);
 
-        if (valid)
-            return "/home";
+        if (valid) {
+            session.setAttribute("userName", userName);
+            return "/signedInHome";
+        }
         else
             return "/loginError";
 
@@ -43,8 +62,10 @@ public class MVCController {
         //Call a method from listService to validate login attempt
         boolean valid = listServices.validateLogin(userName, password);
 
-        if (valid)
+        if (valid) {
+            session.setAttribute("userName", userName);
             return "/home";
+        }
         else
             return "/loginError";
 
@@ -56,8 +77,10 @@ public class MVCController {
         //Call a method to check if the username is taken and if not redirect to add the account in the database.
         boolean valid = listServices.createAccount(createUserName, createPassword);
 
-        if (valid)
+        if (valid) {
+            session.setAttribute("userName", createUserName);
             return "/home";
+        }
         else
             return "/createAccountError";
     }
@@ -68,8 +91,10 @@ public class MVCController {
         //Call a method to check if the username is taken and if not redirect to add the account in the database.
         boolean valid = listServices.createAccount(createUserName, createPassword);
 
-        if (valid)
+        if (valid) {
+            session.setAttribute("userName", createUserName);
             return "/home";
+        }
         else
             return "/createAccountError";
     }
