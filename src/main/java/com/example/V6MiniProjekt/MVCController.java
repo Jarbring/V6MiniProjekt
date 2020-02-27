@@ -30,7 +30,7 @@ public class MVCController {
     }
 
     //Not connected to a logout button yet.
-    @GetMapping("/logout") 
+    @GetMapping("/logout")
     public String logout(HttpSession session){
         session.removeAttribute("userName");
         return "/home";
@@ -64,7 +64,7 @@ public class MVCController {
 
         if (valid) {
             session.setAttribute("userName", userName);
-            return "/home";
+            return "/signedInHome";
         }
         else
             return "/loginError";
@@ -79,7 +79,7 @@ public class MVCController {
 
         if (valid) {
             session.setAttribute("userName", createUserName);
-            return "/home";
+            return "/signedInHome";
         }
         else
             return "/createAccountError";
@@ -93,7 +93,7 @@ public class MVCController {
 
         if (valid) {
             session.setAttribute("userName", createUserName);
-            return "/home";
+            return "/signedInHome";
         }
         else
             return "/createAccountError";
