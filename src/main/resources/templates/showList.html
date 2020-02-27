@@ -1,14 +1,221 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8">
     <meta name="viewport"content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
+    <link rel="stylesheet" th:href="${'/style.css'}" href="../static/style.css" >
     <link rel="stylesheet"href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"crossorigin="anonymous">
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
     <title>Title</title>
 </head>
 <body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-light static-top">
+    <div class="container">
+        <a class="navbar-brand" href="home.html">
+            <img class="logo" src="listit-transp.png" alt="logo">
+        </a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+
+            <form class="form-inline" action="/action_page.php">
+                <div class="form-group">
+                    <label for="Uname">Sign in:</label>
+                    <input type="text" class="form-control" id="Uname">
+                </div>
+                <div class="form-group">
+                    <label for="pwd">Password:</label>
+                    <input type="password" class="form-control" id="pwd">
+                </div>
+            </form>
+
+
+        </div>
+    </div>
+</nav>
+
+<div class ="jumbotron">
+    <div class ="row">
+        <div class = col-8>
+            <div class="card-columns">
+                <div class="card">
+
+                    <div class="card-body">
+                        <h5 class="card-title">Jonathans top 5 tacos</h5>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">1. Fish</li>
+                            <li class="list-group-item">2. Origin</li>
+                            <li class="list-group-item">3. Chicken</li>
+                            <li class="list-group-item">4. Veggie</li>
+                            <li class="list-group-item">5. Crunchy</li>
+                        </ul><br>
+                        <span class="heading">User Rating</span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                        <p>4.1 average based on 254 reviews.</p>
+                    </div>
+                </div>
+                <div class="card">
+
+                    <div class="card-body">
+                        <h5 class="card-title">Oskars top 5 songs</h5>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">1. Push it</li>
+                            <li class="list-group-item">2. Främling</li>
+                            <li class="list-group-item">3. Diggilo diggiley</li>
+                            <li class="list-group-item">4. Hej hopp</li>
+                            <li class="list-group-item">5. In da club</li>
+                        </ul><br>
+                        <span class="heading">User Rating</span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <p>3.2 average based on 678 reviews.</p>
+
+                    </div>
+                </div>
+                <div class="card">
+
+                    <div class="card-body">
+                        <h5 class="card-title">Mikaels top 5 songs</h5>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">1. Push it</li>
+                            <li class="list-group-item">2. Främling</li>
+                            <li class="list-group-item">3. Diggilo diggiley</li>
+                            <li class="list-group-item">4. Hej hopp</li>
+                            <li class="list-group-item">5. In da club</li>
+                        </ul><br>
+                        <span class="heading">User Rating</span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <p>1.3 average based on 967 reviews.</p>
+
+                    </div>
+                </div>
+                <div class="card">
+
+                    <div class="card-body">
+                        <h5 class="card-title">Angelicas top 5 songs</h5>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">1. Push it</li>
+                            <li class="list-group-item">2. Främling</li>
+                            <li class="list-group-item">3. Diggilo diggiley</li>
+                            <li class="list-group-item">4. Hej hopp</li>
+                            <li class="list-group-item">5. In da club</li>
+                        </ul><br>
+                        <span class="heading">User Rating</span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <p>5.0 average based on 180 reviews.</p>
+
+                    </div>
+                </div>
+                <div class="card">
+
+                    <div class="card-body">
+                        <h5 class="card-title">Karins top 5 songs</h5>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">1. Push it</li>
+                            <li class="list-group-item">2. Främling</li>
+                            <li class="list-group-item">3. Diggilo diggiley</li>
+                            <li class="list-group-item">4. Hej hopp</li>
+                            <li class="list-group-item">5. In da club</li>
+                        </ul><br>
+                        <span class="heading">User Rating</span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                        <p>4.3 average based on 356 reviews.</p>
+
+                    </div>
+                </div>
+                <div class="card">
+
+                    <div class="card-body">
+                        <h5 class="card-title">Mikaels top 5 movies</h5>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">1. Push it</li>
+                            <li class="list-group-item">2. Främling</li>
+                            <li class="list-group-item">3. Diggilo diggiley</li>
+                            <li class="list-group-item">4. Hej hopp</li>
+                            <li class="list-group-item">5. In da club</li>
+                        </ul><br>
+                        <span class="heading">User Rating</span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <p>2.9 average based on 136 reviews.</p>
+
+                    </div>
+                </div>
+                <div class="card">
+
+                    <div class="card-body">
+                        <h5 class="card-title">Oskars top 5 TV-series</h5>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">1. Push it</li>
+                            <li class="list-group-item">2. Främling</li>
+                            <li class="list-group-item">3. Diggilo diggiley</li>
+                            <li class="list-group-item">4. Hej hopp</li>
+                            <li class="list-group-item">5. In da club</li>
+                        </ul><br>
+                        <span class="heading">User Rating</span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <p>3.1 average based on 210 reviews.</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class = col-4>
+
+            <div class ="signup">
+                <h3>Sign up for free!</h3>
+                <form action="/home.html"><br>
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username"><br><br>
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password"><br><br>
+                    <label for="email">Email:</label>
+                    <input type ="text" id="email" name="email"><br><br>
+                    <input type="submit" value="Submit" class="button">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<footer class="container">
+    <p>© FlamingoKvintetten 2020</p>
+</footer>
+
 
 
 
