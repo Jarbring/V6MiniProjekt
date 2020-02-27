@@ -24,7 +24,7 @@ public class ListRepository {
         return accountList;
     }
 
-    public List getMusicList() {
+    public List<Music> getMusicList() {
         List<Music> musicList = new ArrayList<>();
         musicList.add(new Music("MusicList", 1, "music", "Artist1", "song1", "Album1", "Pop", 1994));
         musicList.add(new Music("MusicList", 2, "music", "Artist2", "song2", "Album2", "Rock", 2006));
@@ -33,7 +33,7 @@ public class ListRepository {
         return musicList;
     }
 
-    public List getMovieList() {
+    public List<Movie> getMovieList() {
         List<Movie> movieList = new ArrayList<>();
         movieList.add(new Movie("MovieList", 1, "movie", "Movie1", "Horror", "Derpson", 2005));
         movieList.add(new Movie("MovieList", 2, "movie", "Movie2", "Action", "Director2", 1978));
@@ -42,7 +42,7 @@ public class ListRepository {
         return movieList;
     }
 
-    public List getTVSeriesList() {
+    public List<TVSeries> getTVSeriesList() {
         List<TVSeries> tvSeriesList = new ArrayList<>();
         tvSeriesList.add(new TVSeries("TVSeriesList", 1, "TVSeries", "Series1", "Adventure", "Director1", 2006));
         tvSeriesList.add(new TVSeries("TVSeriesList", 2, "TVSeries", "Series2", "History", "Director2", 1993));

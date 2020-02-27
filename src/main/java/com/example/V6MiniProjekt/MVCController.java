@@ -49,4 +49,28 @@ public class MVCController {
             return "/loginError";
 
     }
+
+    @PostMapping("/home")
+    public String createAccount(HttpSession session, @RequestParam String createUserName, String createPassword) {
+
+        //Call a method to check if the username is taken and if not redirect to add the account in the database.
+        boolean valid = listServices.createAccount(createUserName, createPassword);
+
+        if (valid)
+            return "/home";
+        else
+            return "/createAccountError";
+    }
+
+    @PostMapping("/createAccountError") //Create account function on the createAccountError page
+    public String createAccountError(HttpSession session, @RequestParam String createUserName, String createPassword) {
+
+        //Call a method to check if the username is taken and if not redirect to add the account in the database.
+        boolean valid = listServices.createAccount(createUserName, createPassword);
+
+        if (valid)
+            return "/home";
+        else
+            return "/createAccountError";
+    }
 }
