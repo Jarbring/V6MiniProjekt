@@ -32,6 +32,9 @@ public class ListServices {
                 break;
             }
         }
+        if (valid)
+            listRepository.addAccount(createUserName, createPassword);
+        
         return valid;
     }
 }

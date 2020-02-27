@@ -83,7 +83,6 @@ public class MVCController {
         //Call a method to check if the username is taken and if not redirect to add the account in the database.
         boolean valid = listServices.createAccount(createUserName, createPassword);
         if (valid) {
-            listServices.listRepository.addAccount(createUserName, createPassword);
             session.setAttribute("userName", createUserName);
             return "/signedInHome";
         }
