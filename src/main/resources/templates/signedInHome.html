@@ -15,7 +15,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
     <div class="container">
         <a class="navbar-brand" href="home.html">
-            <img class="logo" th:href="${'/logo2.png'}" src="../static/logo2.png" alt="logo">
+            <img class="logo" th:src="${'/logo2.png'}" src="../static/logo2.png" alt="logo">
         </a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -76,7 +76,7 @@
         </div>
         <div class="col">
             <div class="myListBox">
-                <h5>My top Tacos</h5>
+                <h5>Top 5 Tacos</h5>
             <ul>
 
                 <li th:each="movie : ${session.movies}" th:if="${movie.genre == 'Comedy'}" th:text="${movie.title}"></li>
@@ -91,7 +91,7 @@
         </div>
         <div class="col">
             <div class="myListBox">
-            <h5>Music</h5>
+            <h5>Top 5 Music</h5>
             <ul>
 
                 <li th:each="movie : ${session.movies}" th:if="${movie.genre == 'Action'}" th:text="${movie.title}"></li>
