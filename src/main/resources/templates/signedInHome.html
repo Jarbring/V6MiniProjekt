@@ -4,20 +4,18 @@
     <meta charset="utf-8">
     <meta name="viewport"content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet"href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"crossorigin="anonymous">
-
     <link rel="stylesheet" th:href="${'/style.css'}" href="../static/style.css" >
+    <link rel="stylesheet"href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <title>Home</title>
 </head>
 <body>
-<h1>SIGNED IN HOME</h1>
 
-
-<nav class="navbar navbar-expand-lg navbar-dark bg-light static-top">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
     <div class="container">
         <a class="navbar-brand" href="home.html">
-            <img class="logo" src="listit-transp.png" alt="logo">
+            <img class="logo" th:src="${'/logo2.png'}" src="../static/logo2.png" alt="logo">
         </a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,18 +23,14 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Search
-                        <span class="sr-only">(current)</span>
-                    </a>
-                </li>
+
             </ul>
-            <div>
+            <div class="loggedInUser">
                 [[${session.userName}]]
             </div>
             <form class="form-inline" action="/logout" method="POST">
                 <div>
-                    <input type="submit" value="Log Out">
+                    <input type="submit" value="Sign Out" class="button">
                 </div>
             </form>
 
@@ -59,11 +53,15 @@
         </div>
     </div>
 </nav>
+<br><br>
 
 <div class="container">
-    <div class="row alert alert-secondary" role="alert">
-        <div class="col-sm alert alert-danger" role="alert">
-            Movies
+    <h5>Enter your top 5 movies, tacos or music!</h5>
+    <br>
+    <div class="row">
+        <div class="col">
+            <div class="myListBox">
+            <h5>Top 5 Movies</h5>
             <ul>
 
                 <li th:each="list : ${myList}">
@@ -72,57 +70,96 @@
             </ul>
             <form action="/myLists" method="post">
                 <input type="text" placeholder="Titanic?" name="item">
-                <input type="submit" value="Add">
+                <input type="submit" class="buttonSmall" value="Add">
 
             </form>
+            </div>
         </div>
-        <!--<div class="col-sm alert alert-success" role="alert">
-            My top Tacos
+        <div class="col">
+            <div class="myListBox">
+                <h5>Top 5 Tacos</h5>
             <ul>
 
                 <li th:each="movie : ${session.movies}" th:if="${movie.genre == 'Comedy'}" th:text="${movie.title}"></li>
             </ul>
             <form action="/myLists" method="post" th:object="${comedy}" >
-                <input type="text" placeholder="Bästa tacon" th:field="*{title}" >
+                <input type="text" placeholder="Yummiest tacos" th:field="*{title}" >
                 <input type="hidden"  th:field="*{genre}">
-                <input type="submit" value="Add"/>
+                <input type="submit" class="buttonSmall" value="Add"/>
 
             </form>
+            </div>
         </div>
-        <div class="col-sm alert alert-dark" role="alert">
-            Music
+        <div class="col">
+            <div class="myListBox">
+            <h5>Top 5 Music</h5>
             <ul>
 
                 <li th:each="movie : ${session.movies}" th:if="${movie.genre == 'Action'}" th:text="${movie.title}"></li>
             </ul>
             <form action="/myLists" method="post" th:object="${action}" >
-                <input type="text" placeholder="Favvo musik" th:field="*{title}" >
+                <input type="text" placeholder="Fave songs" th:field="*{title}" >
                 <input type="hidden"  th:field="*{genre}">
-                <input type="submit" value="Add"/>
+                <input type="submit" class="buttonSmall" value="Add"/>
 
             </form>
-        </div>-->
-    </div>
-</div>
-
-
-
-
-<div class="container">
-    <div class="row">
-        <div class="col-md-4">
-            <h2>Hej</h2>
-        </div>
-        <div class="col-md-4">
-            <h2>Hej</h2>
-        </div>
-        <div class="col-md-4">
-            <h2>Hej</h2>
+            </div>
         </div>
     </div>
 </div>
+
+<!--<div class="container">-->
+
+<!--    <div class="row alert alert-secondary" role="alert">-->
+<!--        <div class="col-sm alert alert-danger" role="alert">-->
+<!--            Movies-->
+<!--            <ul>-->
+
+<!--                <li th:each="movie : ${session.movies}" th:if="${movie.genre == 'Drama'}" th:text="${movie.title}"></li>-->
+<!--            </ul>-->
+<!--            <form action="/myLists" method="post" th:object="${drama}" >-->
+<!--                <input type="text" placeholder="Top movies" th:field="*{title}" >-->
+<!--                <input type="hidden"  th:field="*{genre}">-->
+<!--                <input type="submit" class="buttonSmall" value="Add"/>-->
+
+<!--            </form>-->
+<!--        </div>-->
+<!--        <div class="col-sm alert alert-success" role="alert">-->
+<!--            My top Tacos-->
+<!--            <ul>-->
+
+<!--                <li th:each="movie : ${session.movies}" th:if="${movie.genre == 'Comedy'}" th:text="${movie.title}"></li>-->
+<!--            </ul>-->
+<!--            <form action="/myLists" method="post" th:object="${comedy}" >-->
+<!--                <input type="text" placeholder="Best taco" th:field="*{title}" >-->
+<!--                <input type="hidden"  th:field="*{genre}">-->
+<!--                <input type="submit" class="buttonSmall" value="Add"/>-->
+
+<!--            </form>-->
+<!--        </div>-->
+<!--        <div class="col-sm alert alert-dark" role="alert">-->
+<!--            Music-->
+<!--            <ul>-->
+
+<!--                <li th:each="movie : ${session.movies}" th:if="${movie.genre == 'Action'}" th:text="${movie.title}"></li>-->
+<!--            </ul>-->
+<!--            <form action="/myLists" method="post" th:object="${action}" >-->
+<!--                <input type="text" placeholder="Fave music" th:field="*{title}" >-->
+<!--                <input type="hidden"  th:field="*{genre}">-->
+<!--                <input type="submit" class="buttonSmall" value="Add"/>-->
+
+<!--            </form>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+
+
+
+
 
 <footer class="container">
+    <br>
     <p>© FlamingoKvintetten 2020</p>
 </footer>
 
