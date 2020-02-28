@@ -75,36 +75,6 @@
             </form>
             </div>
         </div>
-        <div class="col">
-            <div class="myListBox">
-                <h5>Top 5 Tacos</h5>
-            <ul>
-
-                <li th:each="movie : ${session.movies}" th:if="${movie.genre == 'Comedy'}" th:text="${movie.title}"></li>
-            </ul>
-            <form action="/myLists" method="post" th:object="${comedy}" >
-                <input type="text" placeholder="Yummiest tacos" th:field="*{title}" >
-                <input type="hidden"  th:field="*{genre}">
-                <input type="submit" class="buttonSmall" value="Add"/>
-
-            </form>
-            </div>
-        </div>
-        <div class="col">
-            <div class="myListBox">
-            <h5>Top 5 Music</h5>
-            <ul>
-
-                <li th:each="movie : ${session.movies}" th:if="${movie.genre == 'Action'}" th:text="${movie.title}"></li>
-            </ul>
-            <form action="/myLists" method="post" th:object="${action}" >
-                <input type="text" placeholder="Fave songs" th:field="*{title}" >
-                <input type="hidden"  th:field="*{genre}">
-                <input type="submit" class="buttonSmall" value="Add"/>
-
-            </form>
-            </div>
-        </div>
     </div>
 </div>
 
