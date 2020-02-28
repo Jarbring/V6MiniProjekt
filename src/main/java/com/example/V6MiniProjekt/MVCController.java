@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class MVCController {
@@ -88,6 +89,8 @@ Account account;
         boolean valid = listServices.createAccount(createUserName, createPassword);
         if (valid) {
             session.setAttribute("userName", createUserName);
+            List<String> temp = new ArrayList<>();
+            listServices.listRepository.setHm(createUserName, temp);
             return "redirect:/myLists";
         }
         else
@@ -111,25 +114,34 @@ Account account;
     @GetMapping("/myLists")
     String task1(Model model, HttpSession session){
         String userName = (String)session.getAttribute("userName");
-        if (userName != null) {
-            Movie movie = new Movie("", "");
-            Movie drama = new Movie("", "Drama");
-            Movie comedy = new Movie("", "Comedy");
-            Movie action = new Movie("", "Action");
 
-            ArrayList<Movie> movies = new ArrayList<>();
-            model.addAttribute("movie", movie);
-            model.addAttribute("drama", drama);
-            model.addAttribute("comedy", comedy);
-            model.addAttribute("action", action);
+           List<String> myList = listServices.getHm(userName);
+           model.addAttribute("myList", myList);
+
             return "signedInHome";
-        }
-        else
-            return "/home";
-
     }
 
     @PostMapping("/myLists")
+    public String task1(HttpSession session, Model model, @RequestParam String item) {
+
+        String userName = (String)session.getAttribute("userName");
+
+        /*List<String> newItem = new ArrayList<>();
+        newItem.add(item);
+
+        listServices.setHm(userName, newItem);*/
+
+        //listServices.listRepository.getHm().size();
+
+        listServices.listRepository.hm.get(userName).add(item);
+        model.getAttribute("myList");
+        System.out.println("HElooooooooooo");
+        System.out.println(item);
+        System.out.println(userName);
+        return "redirect:/myLists";
+    }
+
+   /* @PostMapping("/myLists")
     String task1(HttpSession session, @ModelAttribute Movie movie, @ModelAttribute ArrayList<Movie> movies){
 
         if (session.getAttribute("movies") == null)
@@ -139,5 +151,5 @@ Account account;
 
         movies.add(movie);
         return "redirect:/myLists";
-    }
+    }*/
 }

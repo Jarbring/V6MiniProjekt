@@ -66,16 +66,17 @@
             Movies
             <ul>
 
-                <li th:each="movie : ${session.movies}" th:if="${movie.genre == 'Drama'}" th:text="${movie.title}"></li>
+                <li th:each="list : ${myList}">
+                    <p th:text="${list}"></p>
+                </li>
             </ul>
-            <form action="/myLists" method="post" th:object="${drama}" >
-                <input type="text" placeholder="Titanic?" th:field="*{title}" >
-                <input type="hidden"  th:field="*{genre}">
-                <input type="submit" value="Add"/>
+            <form action="/myLists" method="post">
+                <input type="text" placeholder="Titanic?" name="item">
+                <input type="submit" value="Add">
 
             </form>
         </div>
-        <div class="col-sm alert alert-success" role="alert">
+        <!--<div class="col-sm alert alert-success" role="alert">
             My top Tacos
             <ul>
 
@@ -100,7 +101,7 @@
                 <input type="submit" value="Add"/>
 
             </form>
-        </div>
+        </div>-->
     </div>
 </div>
 

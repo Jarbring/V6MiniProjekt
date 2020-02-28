@@ -4,11 +4,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 @Service
 public class ListServices {
     @Autowired
     ListRepository listRepository;
+
+    public List<String> getHm(String userName) {
+        return listRepository.getHm().get(userName);
+    }
+
+    public void setHm(String userName, List<String> userList) {
+        listRepository.setHm(userName, userList);
+    }
 
     public boolean validateLogin(String userName, String password) {
         boolean valid = false;
