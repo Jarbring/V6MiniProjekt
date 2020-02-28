@@ -75,7 +75,7 @@ Account account;
 
         if (valid) {
             session.setAttribute("userName", userName);
-            return "/signedInHome";
+            return "redirect:/myLists";
         }
         else
             return "/loginError";
@@ -136,21 +136,6 @@ Account account;
 
         listServices.listRepository.hm.get(userName).add(item);
         model.getAttribute("myList");
-        System.out.println("HElooooooooooo");
-        System.out.println(item);
-        System.out.println(userName);
         return "redirect:/myLists";
     }
-
-   /* @PostMapping("/myLists")
-    String task1(HttpSession session, @ModelAttribute Movie movie, @ModelAttribute ArrayList<Movie> movies){
-
-        if (session.getAttribute("movies") == null)
-            session.setAttribute("movies", new ArrayList<String>());
-
-        ((ArrayList<Movie>)session.getAttribute("movies")).add(movie);
-
-        movies.add(movie);
-        return "redirect:/myLists";
-    }*/
 }
