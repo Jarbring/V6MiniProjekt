@@ -109,27 +109,33 @@ Account account;
     }
 
     @GetMapping("/myLists")
-    String task1(Model model){
-        Movie movie = new Movie("",  "");
-        Movie drama = new Movie("",  "Drama");
-        Movie comedy = new Movie("","Comedy");
-        Movie action = new Movie("", "Action");
+    String task1(Model model, HttpSession session){
+        String userName = (String)session.getAttribute("userName");
+        if (userName != null) {
+            Movie movie = new Movie("", "");
+            Movie drama = new Movie("", "Drama");
+            Movie comedy = new Movie("", "Comedy");
+            Movie action = new Movie("", "Action");
 
-        ArrayList<Movie> movies = new ArrayList<>();
-        model.addAttribute("movie", movie);
-        model.addAttribute("drama", drama);
-        model.addAttribute("comedy", comedy);
-        model.addAttribute("action", action);
-        return "signedInHome";
+            ArrayList<Movie> movies = new ArrayList<>();
+            model.addAttribute("movie", movie);
+            model.addAttribute("drama", drama);
+            model.addAttribute("comedy", comedy);
+            model.addAttribute("action", action);
+            return "signedInHome";
+        }
+        else
+            return "/home";
+
     }
 
     @PostMapping("/myLists")
     String task1(HttpSession session, @ModelAttribute Movie movie, @ModelAttribute ArrayList<Movie> movies){
 
-        if (session.getAttribute(account.getUsername()) == null)
-            session.setAttribute(account.getUsername(), new ArrayList<String>());
+        if (session.getAttribute("movies") == null)
+            session.setAttribute("movies", new ArrayList<String>());
 
-        ((ArrayList<Movie>)session.getAttribute(account.getUsername())).add(movie);
+        ((ArrayList<Movie>)session.getAttribute("movies")).add(movie);
 
         movies.add(movie);
         return "redirect:/myLists";
