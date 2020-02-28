@@ -39,6 +39,8 @@
                     <input type="submit" value="Log Out">
                 </div>
             </form>
+
+
 <!--            <form class="form-inline" action="/action_page.php" method="POST">-->
 <!--                <div class="form-group">-->
 <!--                    <label for="Uname">Sign in:</label>-->
@@ -57,6 +59,51 @@
         </div>
     </div>
 </nav>
+
+<div class="container">
+    <div class="row alert alert-secondary" role="alert">
+        <div class="col-sm alert alert-danger" role="alert">
+            Movies
+            <ul>
+
+                <li th:each="movie : ${session.movies}" th:if="${movie.genre == 'Drama'}" th:text="${movie.title}"></li>
+            </ul>
+            <form action="/myLists" method="post" th:object="${drama}" >
+                <input type="text" placeholder="Titanic?" th:field="*{title}" >
+                <input type="hidden"  th:field="*{genre}">
+                <input type="submit" value="Add"/>
+
+            </form>
+        </div>
+        <div class="col-sm alert alert-success" role="alert">
+            My top Tacos
+            <ul>
+
+                <li th:each="movie : ${session.movies}" th:if="${movie.genre == 'Comedy'}" th:text="${movie.title}"></li>
+            </ul>
+            <form action="/myLists" method="post" th:object="${comedy}" >
+                <input type="text" placeholder="Bästa tacon" th:field="*{title}" >
+                <input type="hidden"  th:field="*{genre}">
+                <input type="submit" value="Add"/>
+
+            </form>
+        </div>
+        <div class="col-sm alert alert-dark" role="alert">
+            Music
+            <ul>
+
+                <li th:each="movie : ${session.movies}" th:if="${movie.genre == 'Action'}" th:text="${movie.title}"></li>
+            </ul>
+            <form action="/myLists" method="post" th:object="${action}" >
+                <input type="text" placeholder="Favvo musik" th:field="*{title}" >
+                <input type="hidden"  th:field="*{genre}">
+                <input type="submit" value="Add"/>
+
+            </form>
+        </div>
+    </div>
+</div>
+
 
 
 

@@ -4,14 +4,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 
 @Controller
 public class MVCController {
-
+Account account;
     @Autowired
     ListServices listServices;
 
@@ -39,6 +41,7 @@ public class MVCController {
     @PostMapping("/logout")
     public String logout(HttpSession session){
         session.removeAttribute("userName");
+
         return "/home";
     }
 
@@ -49,8 +52,9 @@ public class MVCController {
         boolean valid = listServices.validateLogin(userName, password);
 
         if (valid) {
+            account = new Account(userName, password);
             session.setAttribute("userName", userName);
-            return "/signedInHome";
+            return "redirect:/myLists";
         }
         else
             return "/loginError";
@@ -84,7 +88,7 @@ public class MVCController {
         boolean valid = listServices.createAccount(createUserName, createPassword);
         if (valid) {
             session.setAttribute("userName", createUserName);
-            return "/signedInHome";
+            return "redirect:/myLists";
         }
         else
             return "/createAccountError";
@@ -104,12 +108,30 @@ public class MVCController {
             return "/createAccountError";
     }
 
-/*    @GetMapping("/myLists")
-    public String myLists(){
-        return "myLists";
+    @GetMapping("/myLists")
+    String task1(Model model){
+        Movie movie = new Movie("",  "");
+        Movie drama = new Movie("",  "Drama");
+        Movie comedy = new Movie("","Comedy");
+        Movie action = new Movie("", "Action");
+
+        ArrayList<Movie> movies = new ArrayList<>();
+        model.addAttribute("movie", movie);
+        model.addAttribute("drama", drama);
+        model.addAttribute("comedy", comedy);
+        model.addAttribute("action", action);
+        return "signedInHome";
     }
+
     @PostMapping("/myLists")
-    public String myList(Model model, HttpSession session){
-        return "myLists";
-    }*/
+    String task1(HttpSession session, @ModelAttribute Movie movie, @ModelAttribute ArrayList<Movie> movies){
+
+        if (session.getAttribute(account.getUsername()) == null)
+            session.setAttribute(account.getUsername(), new ArrayList<String>());
+
+        ((ArrayList<Movie>)session.getAttribute(account.getUsername())).add(movie);
+
+        movies.add(movie);
+        return "redirect:/myLists";
+    }
 }

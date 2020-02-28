@@ -33,15 +33,6 @@ public class ListRepository {
         return musicList;
     }
 
-    public List<Movie> getMovieList() {
-        List<Movie> movieList = new ArrayList<>();
-        movieList.add(new Movie("MovieList", 1, "movie", "Movie1", "Horror", "Derpson", 2005));
-        movieList.add(new Movie("MovieList", 2, "movie", "Movie2", "Action", "Director2", 1978));
-        movieList.add(new Movie("MovieList", 3, "movie", "Movie3", "Comedy", "Merpson", 2001));
-
-        return movieList;
-    }
-
     public List<TVSeries> getTVSeriesList() {
         List<TVSeries> tvSeriesList = new ArrayList<>();
         tvSeriesList.add(new TVSeries("TVSeriesList", 1, "TVSeries", "Series1", "Adventure", "Director1", 2006));
