@@ -53,8 +53,9 @@
         </div>
     </div>
 </nav>
-<br><br>
 
+<div class="jumbotron">
+    <br><br>
 <div class="container">
     <h5>List your top things</h5>
     <br>
@@ -79,56 +80,8 @@
         </div>
     </div>
 </div>
-
-<!--<div class="container">-->
-
-<!--    <div class="row alert alert-secondary" role="alert">-->
-<!--        <div class="col-sm alert alert-danger" role="alert">-->
-<!--            Movies-->
-<!--            <ul>-->
-
-<!--                <li th:each="movie : ${session.movies}" th:if="${movie.genre == 'Drama'}" th:text="${movie.title}"></li>-->
-<!--            </ul>-->
-<!--            <form action="/myLists" method="post" th:object="${drama}" >-->
-<!--                <input type="text" placeholder="Top movies" th:field="*{title}" >-->
-<!--                <input type="hidden"  th:field="*{genre}">-->
-<!--                <input type="submit" class="buttonSmall" value="Add"/>-->
-
-<!--            </form>-->
-<!--        </div>-->
-<!--        <div class="col-sm alert alert-success" role="alert">-->
-<!--            My top Tacos-->
-<!--            <ul>-->
-
-<!--                <li th:each="movie : ${session.movies}" th:if="${movie.genre == 'Comedy'}" th:text="${movie.title}"></li>-->
-<!--            </ul>-->
-<!--            <form action="/myLists" method="post" th:object="${comedy}" >-->
-<!--                <input type="text" placeholder="Best taco" th:field="*{title}" >-->
-<!--                <input type="hidden"  th:field="*{genre}">-->
-<!--                <input type="submit" class="buttonSmall" value="Add"/>-->
-
-<!--            </form>-->
-<!--        </div>-->
-<!--        <div class="col-sm alert alert-dark" role="alert">-->
-<!--            Music-->
-<!--            <ul>-->
-
-<!--                <li th:each="movie : ${session.movies}" th:if="${movie.genre == 'Action'}" th:text="${movie.title}"></li>-->
-<!--            </ul>-->
-<!--            <form action="/myLists" method="post" th:object="${action}" >-->
-<!--                <input type="text" placeholder="Fave music" th:field="*{title}" >-->
-<!--                <input type="hidden"  th:field="*{genre}">-->
-<!--                <input type="submit" class="buttonSmall" value="Add"/>-->
-
-<!--            </form>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
-
-
-
-
-
+    <br><br><br><br>
+</div>
 
 <footer class="container">
     <br>
