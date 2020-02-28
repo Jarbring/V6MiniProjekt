@@ -82,7 +82,7 @@
                 <li th:each="movie : ${session.movies}" th:if="${movie.genre == 'Comedy'}" th:text="${movie.title}"></li>
             </ul>
             <form action="/myLists" method="post" th:object="${comedy}" >
-                <input type="text" placeholder="Best taco" th:field="*{title}" >
+                <input type="text" placeholder="Yummiest tacos" th:field="*{title}" >
                 <input type="hidden"  th:field="*{genre}">
                 <input type="submit" class="buttonSmall" value="Add"/>
 
@@ -97,7 +97,7 @@
                 <li th:each="movie : ${session.movies}" th:if="${movie.genre == 'Action'}" th:text="${movie.title}"></li>
             </ul>
             <form action="/myLists" method="post" th:object="${action}" >
-                <input type="text" placeholder="Fave music" th:field="*{title}" >
+                <input type="text" placeholder="Fave songs" th:field="*{title}" >
                 <input type="hidden"  th:field="*{genre}">
                 <input type="submit" class="buttonSmall" value="Add"/>
 
