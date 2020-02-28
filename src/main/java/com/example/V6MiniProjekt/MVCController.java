@@ -122,16 +122,17 @@ Account account;
     }
 
     @PostMapping("/myLists")
-    public String task1(HttpSession session, Model model, @RequestParam String item) {
+    public String task1(HttpSession session, Model model, @RequestParam String item, @RequestParam(required = false, defaultValue = "1") int rensa) {
 
         String userName = (String)session.getAttribute("userName");
-
         /*List<String> newItem = new ArrayList<>();
         newItem.add(item);
-
         listServices.setHm(userName, newItem);*/
-
         //listServices.listRepository.getHm().size();
+        if (rensa == 0){
+            listServices.listRepository.hm.get(userName).clear();
+            return "redirect:/myLists";
+        }
 
         listServices.listRepository.hm.get(userName).add(item);
         model.getAttribute("myList");

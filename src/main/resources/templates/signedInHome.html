@@ -56,12 +56,12 @@
 <br><br>
 
 <div class="container">
-    <h5>Enter your top 5 movies, tacos or music!</h5>
+    <h5>List your top things</h5>
     <br>
     <div class="row">
         <div class="col">
             <div class="myListBox">
-            <h5>Top 5 Movies</h5>
+            <h5>List 1</h5>
             <ul>
 
                 <li th:each="list : ${myList}">
@@ -69,10 +69,12 @@
                 </li>
             </ul>
             <form action="/myLists" method="post">
-                <input type="text" placeholder="Titanic?" name="item">
+                <input type="text" placeholder="item" name="item">
                 <input type="submit" class="buttonSmall" value="Add">
+                <button type="submit" class="buttonSmall" value="0" name="rensa"  >Clear</button>
 
             </form>
+
             </div>
         </div>
     </div>
