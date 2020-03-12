@@ -7,6 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.util.Assert;
 
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,4 +41,18 @@ class V6MiniProjektApplicationTests {
 		//Kolla så att ArrayList inte ersätter med nya accounts
 	}
 
+
+
+	@Test
+	void contextLoads() {
+	}
+
+	@Test
+	void testSQLServler() throws SQLException {
+		Assertions.assertEquals("JMAN",listRepository.testDB());
+	}
+
+
 }
+
+

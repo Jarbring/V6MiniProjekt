@@ -1,13 +1,38 @@
 package com.example.V6MiniProjekt;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import javax.sql.DataSource;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.*;
+import java.sql.Statement;
 import java.util.HashMap;
 import java.util.List;
 import java.util.ArrayList;
 
 @Repository
 public class ListRepository {
+
+    @Autowired
+    DataSource dataSource;
+    public String testDB() throws SQLException {
+        String result = null;
+        try (Connection conn = dataSource.getConnection();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery("SELECT * FROM [USER]")) {
+           if (rs.next()) {
+               result = rs.getString(1);
+           }
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+
 
     List<Account> accountList = new ArrayList<>();
     HashMap<String, List<String>> hm = new HashMap();
