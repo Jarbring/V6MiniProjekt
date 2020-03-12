@@ -115,7 +115,7 @@ Account account;
         String userName = (String)session.getAttribute("userName");
 
 
-           model.addAttribute("myList", listServices.getItemsList());
+           model.addAttribute("myList", listServices.getItemsList(userName));
 
             return "signedInHome";
     }

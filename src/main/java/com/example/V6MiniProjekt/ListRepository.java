@@ -71,12 +71,12 @@ public class ListRepository {
                 rs.getString("item"),
                 rs.getInt("listId"));
     }
-    public List<Items> getItemsList() {
+    public List<Items> getItemsList(String userName) {
         List<Items> itemsList = new ArrayList<>();
 
         try (Connection conn = dataSource.getConnection();
              Statement stmt = conn.createStatement();
-             ResultSet rs = stmt.executeQuery("SELECT * FROM Items")) {
+             ResultSet rs = stmt.executeQuery("SELECT * FROM Lists INNER JOIN [USER] ON [user].email = lists.email INNER JOIN Items ON items.listId = lists.listId WHERE username ='" + userName + "'")) {
             while (rs.next()) {
                 itemsList.add(rsItems(rs));
             }

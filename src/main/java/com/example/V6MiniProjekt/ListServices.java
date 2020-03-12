@@ -20,9 +20,9 @@ public class ListServices {
         listRepository.setHm(userName, userList);
     }
 
-    public List<String> getItemsList(){
+    public List<String> getItemsList(String userName){
         List<String> itemsList = new ArrayList<>();
-        for (Items items : listRepository.getItemsList()) {
+        for (Items items : listRepository.getItemsList(userName)) {
             itemsList.add(items.getItem());
         }
         return itemsList;
