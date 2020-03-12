@@ -17,6 +17,8 @@ public class ListRepository {
 
     @Autowired
     DataSource dataSource;
+
+
     public String testDB() throws SQLException {
         String result = null;
         try (Connection conn = dataSource.getConnection();
@@ -34,7 +36,8 @@ public class ListRepository {
 
 
 
-    List<Account> accountList = new ArrayList<>();
+
+
     HashMap<String, List<String>> hm = new HashMap();
     List<String> mikael = new ArrayList<>();
     List<String> jonathan = new ArrayList<>();
@@ -57,17 +60,34 @@ public class ListRepository {
         return hm;
     }
 
-    public void addAccount(String userName, String password) {
-        accountList.add(new Account(userName,password));
+
+    private Account rsAccount(ResultSet rs) throws SQLException {
+        return new Account(rs.getString("username"),
+                rs.getString("password"),
+                rs.getString("email"));
     }
 
+
+/*    public void addAccount(String userName, String password) {
+        accountList.add(new Account(userName,password));
+    }*/
+
     public List<Account> getAccountList() {
-        accountList.add(new Account("Mikael","Mikael"));
-        accountList.add(new Account("Oskar","Oskar"));
-        accountList.add(new Account("Jonathan","Jonathan"));
-        accountList.add(new Account("Angelica","Angelica"));
-        accountList.add(new Account("Karin","Karin"));
+        List<Account> accountList = new ArrayList<>();
+
+        try (Connection conn = dataSource.getConnection();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery("SELECT * FROM [USER]")) {
+            while (rs.next()) {
+                accountList.add(rsAccount(rs));
+            }
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
 
         return accountList;
     }
 }
+    //Helper method to create accounts from result set
+

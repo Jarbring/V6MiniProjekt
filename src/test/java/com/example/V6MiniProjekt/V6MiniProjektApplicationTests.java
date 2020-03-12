@@ -20,7 +20,7 @@ class V6MiniProjektApplicationTests {
 	@Autowired
 	ListServices listServices;
 
-	@Test
+/*	@Test
 	public void getValidateLogin() {
 
 		//Nedan testar om det fungerar när vi lägger till en användare
@@ -34,7 +34,7 @@ class V6MiniProjektApplicationTests {
 		Assertions.assertEquals(false, listServices.validateLogin("Mikael", "Oskar"));
 		Assertions.assertEquals(true, listServices.validateLogin("Oskar", "Oskar"));
 
-	}
+	}*/
 
 	@Test
 	public void validateArraySize() {
@@ -47,7 +47,7 @@ class V6MiniProjektApplicationTests {
 	void contextLoads() {
 	}
 
-	@Test
+	@Test //Database connection test
 	void testSQLServler() throws SQLException {
 		Assertions.assertEquals("JMAN",listRepository.testDB());
 	}

@@ -20,6 +20,21 @@ public class ListServices {
         listRepository.setHm(userName, userList);
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public boolean validateLogin(String userName, String password) {
         boolean valid = false;
 
@@ -32,7 +47,7 @@ public class ListServices {
         return valid;
     }
 
-    public boolean createAccount(String createUserName, String createPassword) {
+/*    public boolean createAccount(String createUserName, String createPassword) {
         boolean valid = true;
 
         //Checks if username is taken and in not it adds the account to the database
@@ -46,6 +61,6 @@ public class ListServices {
             listRepository.addAccount(createUserName, createPassword);
 
         return valid;
-    }
+    }*/
 
 }
