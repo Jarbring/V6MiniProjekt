@@ -82,12 +82,11 @@ Account account;
             return "/loginError";
 
     }
-
-   /* @PostMapping("/home1")
-    public String createAccount(HttpSession session, @RequestParam String createUserName, String createPassword) {
+    @PostMapping("/home1")
+    public String createAccount(HttpSession session, @RequestParam String createUserName, String createPassword, String createEmail) {
 
         //Call a method to check if the username is taken and if not redirect to add the account in the database.
-        boolean valid = listServices.createAccount(createUserName, createPassword);
+        boolean valid = listServices.createAccount(createUserName, createPassword,createEmail);
         if (valid) {
             session.setAttribute("userName", createUserName);
             List<String> temp = new ArrayList<>();
@@ -96,13 +95,12 @@ Account account;
         }
         else
             return "/createAccountError";
-    }*/
-/*
+    }
     @PostMapping("/createAccountError") //Create account function on the createAccountError page
-    public String createAccountError(HttpSession session, @RequestParam String createUserName, String createPassword) {
+    public String createAccountError(HttpSession session, @RequestParam String createUserName, String createPassword,String createEmail) {
 
         //Call a method to check if the username is taken and if not redirect to add the account in the database.
-        boolean valid = listServices.createAccount(createUserName, createPassword);
+        boolean valid = listServices.createAccount(createUserName, createPassword,createEmail);
 
         if (valid) {
             session.setAttribute("userName", createUserName);
@@ -110,7 +108,7 @@ Account account;
         }
         else
             return "/createAccountError";
-    }*/
+    }
 
     @GetMapping("/myLists")
     String task1(Model model, HttpSession session){

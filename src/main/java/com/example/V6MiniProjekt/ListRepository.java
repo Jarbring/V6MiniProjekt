@@ -88,9 +88,21 @@ public class ListRepository {
         return itemsList;
     }
 
-/*    public void addAccount(String userName, String password) {
-        accountList.add(new Account(userName,password));
-    }*/
+    public void addAccount(String username, String password, String email)  {
+
+        try (Connection conn = dataSource.getConnection()){
+             PreparedStatement ps = conn.prepareStatement("INSERT INTO [USER] (username,password,email) VALUES (?,?,?)");
+            ps.setString(1,username);
+            ps.setString(2,password);
+            ps.setString(3,email);
+            ps.executeUpdate();
+
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
 
     public List<Account> getAccountList() {
         List<Account> accountList = new ArrayList<>();

@@ -54,7 +54,7 @@ public class ListServices {
         return valid;
     }
 
-/*    public boolean createAccount(String createUserName, String createPassword) {
+    public boolean createAccount(String createUserName, String createPassword, String createEmail) {
         boolean valid = true;
 
         //Checks if username is taken and in not it adds the account to the database
@@ -65,9 +65,9 @@ public class ListServices {
             }
         }
         if (valid)
-            listRepository.addAccount(createUserName, createPassword);
+            listRepository.addAccount(createUserName, createPassword, createEmail);
 
         return valid;
-    }*/
+    }
 
 }
