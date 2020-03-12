@@ -20,6 +20,13 @@ public class ListServices {
         listRepository.setHm(userName, userList);
     }
 
+    public List<String> getItemsList(){
+        List<String> itemsList = new ArrayList<>();
+        for (Items items : listRepository.getItemsList()) {
+            itemsList.add(items.getItem());
+        }
+        return itemsList;
+    }
 
 
 

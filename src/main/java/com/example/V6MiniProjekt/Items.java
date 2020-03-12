@@ -3,10 +3,9 @@ package com.example.V6MiniProjekt;
 public class Items {
     private int itemId;
     private String item;
-
-
-
     private int listId;
+
+
     public Items(int itemId, String item, int listId) {
         this.itemId = itemId;
         this.item = item;

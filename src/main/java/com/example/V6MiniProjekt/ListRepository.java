@@ -66,7 +66,27 @@ public class ListRepository {
                 rs.getString("password"),
                 rs.getString("email"));
     }
+    private Items rsItems(ResultSet rs) throws SQLException {
+        return new Items(rs.getInt("itemId"),
+                rs.getString("item"),
+                rs.getInt("listId"));
+    }
+    public List<Items> getItemsList() {
+        List<Items> itemsList = new ArrayList<>();
 
+        try (Connection conn = dataSource.getConnection();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery("SELECT * FROM Items")) {
+            while (rs.next()) {
+                itemsList.add(rsItems(rs));
+            }
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return itemsList;
+    }
 
 /*    public void addAccount(String userName, String password) {
         accountList.add(new Account(userName,password));

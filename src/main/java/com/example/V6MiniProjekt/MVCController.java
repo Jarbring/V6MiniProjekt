@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
+
 public class MVCController {
 Account account;
     @Autowired
@@ -115,8 +116,8 @@ Account account;
     String task1(Model model, HttpSession session){
         String userName = (String)session.getAttribute("userName");
 
-           List<String> myList = listServices.getHm(userName);
-           model.addAttribute("myList", myList);
+
+           model.addAttribute("myList", listServices.getItemsList());
 
             return "signedInHome";
     }
