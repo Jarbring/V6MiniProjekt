@@ -12,17 +12,21 @@ public class ListServices {
     @Autowired
     ListRepository listRepository;
 
-    public List<String> getHm(String userName) {
-        return listRepository.getHm().get(userName);
-    }
-
-    public void setHm(String userName, List<String> userList) {
-        listRepository.setHm(userName, userList);
-    }
+//    public List<String> getHm(String userName) {
+//        return listRepository.getHm().get(userName);
+//    }
+//
+//    public void setHm(String userName, List<String> userList) {
+//        listRepository.setHm(userName, userList);
+//    }
 
     public void addToList(String item, String username) {
         listRepository.addToList(item, username);
 
+    }
+
+    public void clearList(String username) {
+        listRepository.clearList(username);
     }
 
     public List<String> getItemsList(String userName){

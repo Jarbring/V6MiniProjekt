@@ -35,30 +35,6 @@ public class ListRepository {
     }
 
 
-
-
-
-    HashMap<String, List<String>> hm = new HashMap();
-    List<String> mikael = new ArrayList<>();
-    List<String> jonathan = new ArrayList<>();
-    List<String> oskar = new ArrayList<>();
-    List<String> angelica = new ArrayList<>();
-    List<String> karin = new ArrayList<>();
-
-    public void setHm(String userName, List<String> userList) {
-       hm.put(userName, userList);
-    }
-
-    public HashMap<String, List<String>> getHm() {
-
-        hm.put("Mikael", mikael);
-        hm.put("Jonathan", jonathan);
-        hm.put("Oskar", oskar);
-        hm.put("Angelica", angelica);
-        hm.put("Karin", karin);
-
-        return hm;
-    }
     public void addToList(String item, String username)  {
 
         try (Connection conn = dataSource.getConnection()){
@@ -95,8 +71,8 @@ public class ListRepository {
         List<Items> itemsList = new ArrayList<>();
 
         try (Connection conn = dataSource.getConnection();
-             Statement stmt = conn.createStatement();
-             ResultSet rs = stmt.executeQuery("SELECT * FROM Lists INNER JOIN [USER] ON [user].email = lists.email INNER JOIN Items ON items.listId = lists.listId WHERE username ='" + userName + "'")) {
+            PreparedStatement ps = conn.prepareStatement("SELECT * FROM Lists INNER JOIN [USER] ON [user].email = lists.email INNER JOIN Items ON items.listId = lists.listId WHERE username ='" + userName + "'")) {
+            ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 itemsList.add(rsItems(rs));
             }
@@ -106,6 +82,19 @@ public class ListRepository {
         }
 
         return itemsList;
+    }
+
+    public void clearList(String userName) {
+
+        try (Connection conn = dataSource.getConnection();
+             PreparedStatement ps = conn.prepareStatement("DELETE N FROM Items N INNER JOIN Lists ON Lists.ListId = N.ListId INNER JOIN [User] ON [user].email = Lists.email WHERE username ='" + userName + "'")) {
+            ps.executeUpdate();
+
+
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public void addAccount(String username, String password, String email)  {

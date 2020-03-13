@@ -89,8 +89,8 @@ Account account;
         boolean valid = listServices.createAccount(createUserName, createPassword,createEmail);
         if (valid) {
             session.setAttribute("userName", createUserName);
-            List<String> temp = new ArrayList<>();
-            listServices.listRepository.setHm(createUserName, temp);
+//            List<String> temp = new ArrayList<>();
+//            listServices.listRepository.setHm(createUserName, temp);
             return "redirect:/myLists";
         }
         else
@@ -126,7 +126,7 @@ Account account;
         String userName = (String)session.getAttribute("userName");
 
         if (rensa == 0){
-            listServices.listRepository.hm.get(userName).clear();
+            listServices.clearList(userName);
             return "redirect:/myLists";
         }
 
