@@ -23,7 +23,7 @@ public class ListRepository {
         String result = null;
         try (Connection conn = dataSource.getConnection();
              Statement stmt = conn.createStatement();
-             ResultSet rs = stmt.executeQuery("SELECT * FROM [USER]")) {
+             ResultSet rs = stmt.executeQuery("SELECT * FROM [USER] where username = 'Jman'")) {
            if (rs.next()) {
                result = rs.getString(1);
            }
