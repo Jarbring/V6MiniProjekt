@@ -59,6 +59,26 @@ public class ListRepository {
 
         return hm;
     }
+    public void addToList(String item, String username)  {
+
+        try (Connection conn = dataSource.getConnection()){
+            int listId = 0;
+            PreparedStatement ps = conn.prepareStatement("SELECT ListId AS C FROM LISTS INNER JOIN [User] ON lists.email = [user].email WHERE username ='" + username +"'");
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                listId = rs.getInt("C");
+            }
+            PreparedStatement ps2 = conn.prepareStatement("INSERT INTO Items (listId, Item) VALUES (?, ?)");
+            ps2.setInt(1,listId);
+            ps2.setString(2,item);
+            ps2.executeUpdate();
+
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
 
 
     private Account rsAccount(ResultSet rs) throws SQLException {
@@ -96,6 +116,9 @@ public class ListRepository {
             ps.setString(2,password);
             ps.setString(3,email);
             ps.executeUpdate();
+            PreparedStatement ps2 = conn.prepareStatement("INSERT INTO Lists (email) VALUES (?)");
+            ps2.setString(1,email);
+            ps2.executeUpdate();
 
         }
         catch (SQLException e) {
